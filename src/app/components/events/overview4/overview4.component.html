@@ -1,0 +1,22 @@
+<p>Overview of all events:</p>
+<div class="row">
+  <div class="col-sm-4">
+    <table id="left-table" class="table">
+      <thead>
+      <td>Event title</td>
+      </thead>
+      <tr *ngFor="let evenement of this.eventsService.aEvents">
+        <td [ngClass]="{'current': selectedAEventIndex == this.eventsService.getIndex(evenement)}"
+            (click)="updateSelected(this.eventsService.getIndex(evenement))">{{evenement.title}}</td>
+      </tr>
+    </table>
+    <button
+      (click)="addRandomAEvent();
+      updateSelected(this.eventsService.aEvents.length - 1)"
+      class="btn-light float-right">Add Event
+    </button>
+  </div>
+  <div class="col-sm-8">
+    <router-outlet></router-outlet>
+  </div>
+</div>

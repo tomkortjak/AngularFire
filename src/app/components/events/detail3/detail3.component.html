@@ -1,0 +1,48 @@
+<table class="table">
+  <thead>
+  <tr>
+    <td>Event title</td>
+    <td></td>
+  </tr>
+  </thead>
+  <tr>
+    <td>Title:</td>
+    <td><input (ngModelChange)="isNotChanged()" type="text" name="title" placeholder="title" class="form-control" [(ngModel)]="currentEventA.title"/>
+    </td>
+  </tr>
+  <tr>
+    <td>Description:</td>
+    <td><input (ngModelChange)="isNotChanged()" type="text" name="title" placeholder="title" class="form-control"
+               [(ngModel)]="currentEventA.description"/></td>
+  </tr>
+  <tr>
+    <td>Status:</td>
+    <td>
+      <select [(ngModel)]="currentEventA.status">
+        <option>DRAFT</option>
+        <option>CANCELED</option>
+        <option>PUBLISHED</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>Is Ticked:</td>
+    <td><input (ngModelChange)="isNotChanged()" type="checkbox" name="participants" placeholder="participants"
+               [(ngModel)]="currentEventA.IsTicked"/></td>
+  </tr>
+  <tr>
+    <td>Participation fee:</td>
+    <td><input (ngModelChange)="isNotChanged()" type="number" name="fee" class="form-control"
+               [(ngModel)]="currentEventA.participationFee"/></td>
+  </tr>
+  <tr>
+    <td>Maximum participants:</td>
+    <td><input (ngModelChange)="isNotChanged()" type="number" name="participants" class="form-control"
+               [(ngModel)]="currentEventA.maxParticipants"/></td>
+  </tr>
+</table>
+<button [disabled]="aEventEdited" (click)="saveEditedEvent()" class="btn-light float-right">Save</button>
+<button (click)="clearEditedEvent()" class="btn-light float-right">Clear</button>
+<button [disabled]="aEventEdited" (click)="resetEditedEvent()" class="btn-light float-right">Reset</button>
+<button (click)="cancelEditedEvent()" class="btn-light float-right">Cancel</button>
+<button (click)="removeEditedEvent()" class="btn-light float-right">Delete</button>

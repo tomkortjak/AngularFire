@@ -1,0 +1,34 @@
+p {
+  margin: 25px 0;
+  font-weight: bolder;
+}
+
+form {
+  color: black;
+  font-weight: bolder;
+  margin: 0;
+}
+
+label {
+  display: block;
+}
+
+.btn-light {
+  background: darkorange;
+  color: black;
+  font-weight: bold;
+}
+
+.row {
+  max-width: 100vw;
+}
+
+input.ng-valid.ng-dirty {
+  background: darkseagreen;
+}
+
+input.ng-invalid {
+  background: orangered;
+  color: white;
+  font-weight: bolder;
+}

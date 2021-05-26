@@ -1,0 +1,32 @@
+.row {
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-left {
+  padding-left: 15px;
+  margin: auto;
+  width: 250px;
+  float: left;
+}
+
+.home-center {
+  width: calc(100% - 500px);
+}
+
+.home-right {
+  width: 250px;
+  float: right;
+  padding-right: 15px;
+}
+
+.home-label {
+  font-weight: bolder;
+  padding-top: 25px;
+}
+.home-image {
+  padding-right: 25px;
+  padding-top: 25px;
+}

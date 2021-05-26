@@ -1,0 +1,36 @@
+<form #f="ngForm" (keydown.enter)="$event.preventDefault()">
+  <label>Title: {{currentEventA.id}}</label>
+  <input id="inputTitle" (ngModelChange)="isNotChanged()" type="text" name="title" placeholder="title"
+         class="form-control form-group" [(ngModel)]="currentEventA.title" [required]="true"
+         [minLength]="6"/>
+  <label>Description:</label>
+  <input id="description" (ngModelChange)="isNotChanged()" type="text" name="description" placeholder="description"
+         class="form-control form-group"
+         [(ngModel)]="currentEventA.description" [required]="true" [minLength]="10"/>
+  <label>Status:</label>
+  <select [(ngModel)]="currentEventA.status" [ngModel]="this.defaultSelect" [required]="true" name="status"
+          class="form-group">
+    <option value="DRAFT">Draft</option>
+    <option value="CANCELED">Canceled</option>
+    <option value="PUBLISHED">Published</option>
+  </select>
+  <label>Is Ticked:</label>
+  <input id="ticked" (ngModelChange)="isNotChanged()" type="checkbox" name="ticked" placeholder="participants"
+         class="form-group"
+         [(ngModel)]="currentEventA.IsTicked" [required]="true"/>
+  <label>Participation fee:</label>
+  <input id="fee" (ngModelChange)="isNotChanged()" pattern="[0-9]+.[0-9]{2}" type="number" name="fee"
+         class="form-control form-group"
+         [(ngModel)]="currentEventA.participationFee" [minLength]="1" [required]="true"/>
+  <label>Maximum participants:</label>
+  <input id="participants" (ngModelChange)="isNotChanged()" type="number" name="participants"
+         class="form-control form-group"
+         [(ngModel)]="currentEventA.maxParticipants" [minLength]="1" [required]="true"/>
+  <p *ngIf="f.invalid">Please fix the input errors in the highlighted fields</p>
+</form>
+<button [disabled]="aEventEdited || f.invalid" (click)="saveEditedEvent(); this.f.form.markAsPristine()"
+        class="btn-light float-right form-group">Save</button>
+<button (click)="clearEditedEvent()" class="btn-light float-right">Clear</button>
+<button [disabled]="aEventEdited" (click)="resetEditedEvent(); this.f.form.markAsPristine()" class="btn-light float-right">Reset</button>
+<button (click)="cancelEditedEvent()" class="btn-light float-right">Cancel</button>
+<button [disabled]="!aEventEdited" (click)="removeEditedEvent()" class="btn-light float-right">Delete</button>

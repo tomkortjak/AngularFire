@@ -1,0 +1,38 @@
+<p>List of all events:</p>
+<table class="table">
+  <thead>
+    <th>Title</th>
+    <td>Start</td>
+    <td>End</td>
+    <td>Status</td>
+    <td>Entrence Fee</td>
+    <td>Max Participants</td>
+  </thead>
+  <tr *ngFor="let evenement of aEvents">
+    <td>{{evenement.title}}</td>
+    <td>{{evenement.start.toLocaleString('en-EN', {
+        weekday: 'short',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        hourCycle: 'h24',
+        minute: '2-digit',
+        timeZone: 'Europe/Amsterdam'
+    })}}</td>
+    <td>{{evenement.end.toLocaleString('en-EN', {
+        weekday: 'short',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        hourCycle: 'h24',
+        minute: '2-digit',
+        timeZone: 'Europe/Amsterdam'
+    })}}</td>
+    <td>{{evenement.status}}</td>
+    <td>{{evenement.participationFee == 0 ? 'free' : '&euro; ' + evenement.participationFee + ',00'}}</td>
+    <td>{{evenement.maxParticipants}}</td>
+  </tr>
+</table>
+<button class="btn-light float-right" (click)="addRandomAEvent()">Add Event</button>

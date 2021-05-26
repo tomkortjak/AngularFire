@@ -1,0 +1,24 @@
+p {
+  margin: 25px 0;
+  font-weight: bolder;
+}
+
+thead {
+  background: sandybrown;
+  color: black;
+  font-weight: bolder;
+}
+
+table {
+  margin: 0;
+}
+
+td {
+  border: 1px solid gray;
+}
+
+.btn-light {
+  background: darkorange;
+  color: black;
+  font-weight: bold;
+}
